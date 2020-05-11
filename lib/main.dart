@@ -18,6 +18,33 @@ class SignUpApp extends StatelessWidget {
   }
 }
 
+class LoginUpForm extends StatefulWidget {
+  @override
+  _LoginFormState createState() => _LoginFormState();
+}
+
+class LoginScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: Center(
+        child: SizedBox(
+          width: 400,
+          child: Card(
+            child: LoginUpForm(),
+          ),
+        )
+      ),
+    );
+  }
+}
+
+class SignUpForm extends StatefulWidget {
+  @override
+  _SignUpFormState createState() => _SignUpFormState();
+}
+
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,24 +71,6 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Card(
-          child: LoginUpForm(),
-        ),
-      ),
-    );
-  }
-}
-
-class LoginUpForm extends StatefulWidget {
-  @override
-  _LoginFormState createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<LoginUpForm> {
@@ -151,11 +160,6 @@ class _LoginFormState extends State<LoginUpForm> {
       ),
     );
   }
-}
-
-class SignUpForm extends StatefulWidget {
-  @override
-  _SignUpFormState createState() => _SignUpFormState();
 }
 
 class _SignUpFormState extends State<SignUpForm> {
