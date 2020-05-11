@@ -87,8 +87,25 @@ class _LoginFormState extends State<LoginUpForm> {
     });
   }
 
+  _userLogin(String username,String password) async {
+    // set up POST request arguments
+    String url = 'http://127.0.0.1:3000/api/users/authenticate';
+    Map<String, String> headers = {"Content-type": "application/json"};
+    String json = '{"username":"${username}","password":"${password}"}';
+    // make POST request
+    Response response = await post(url, headers: headers, body: json);
+    // check the status code for the result
+    int statusCode = response.statusCode;
+    // this API passes back the id of the new item added to the body
+    String logindStatus = response.body;
+
+    if(logindStatus=="loginpassed"){
+      Navigator.of(context).pushNamed('/welcome');
+    }
+  }
+
   void _showWelcomeScreen() {
-    Navigator.of(context).pushNamed('/welcome');
+    _userLogin(_usernameTextController.value.text,_passwordTextController.value.text);
   }
   void _showSignUpScreen(){
     Navigator.of(context).pushNamed('/signup');
