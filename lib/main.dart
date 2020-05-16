@@ -67,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Welcome! from sign up', style: Theme.of(context).textTheme.headline2),
+        child: Text('Welcome! ', style: Theme.of(context).textTheme.headline2),
       ),
     );
   }
@@ -98,7 +98,7 @@ class _LoginFormState extends State<LoginUpForm> {
 
   _userLogin(String username,String password) async {
     // set up POST request arguments
-    String url = 'http://127.0.0.1:3000/api/users/authenticate';
+    String url = 'http://178.62.120.132:3000/api/users/authenticate';
     Map<String, String> headers = {"Content-type": "application/json"};
     String json = '{"username":"${username}","password":"${password}"}';
     // make POST request
@@ -191,7 +191,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
   _createUser(String name,String surname,String username,String password) async {
     // set up POST request arguments
-    String url = 'http://127.0.0.1:3000/api/users';
+    String url = 'http://178.62.120.132:3000/api/users';
     Map<String, String> headers = {"Content-type": "application/json"};
     String json = '{"name": "${name}", "surname": "${surname}", "username":"${username}","password":"${password}"}';
     // make POST request
